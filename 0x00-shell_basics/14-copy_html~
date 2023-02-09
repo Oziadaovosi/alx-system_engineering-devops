@@ -1,0 +1,4 @@
+#!/bin/bash
+current_dir=$(pwd) & parent_dir=$(dirname "$current_dir") & find "$current_dir" -type f -name "*.html" -exec sh -c ' &  for file do & target="'"$parent_dir"'/$(basename "$file")" & if [ ! -e "$target" ] || [ "$file" -nt "$target" ]; then & cp "$file" "$target" & fi & done & ' sh {} +
+
+
